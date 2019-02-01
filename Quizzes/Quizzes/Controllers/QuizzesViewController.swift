@@ -34,6 +34,20 @@ UICollectionViewDelegateFlowLayout, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return quizzes.count
     }
+    override func viewDidAppear(_ animated: Bool) {
+        if let userName = UserDefaults.standard.object(forKey: UserdefaultsHelper.usernameKey) as? String {
+        quizzes = DataPersistenceModel.getQuizzes(userName: userName)
+        }
+    }
+    @objc func deleteWasPressed(sender: UIButton){
+        if let userName = UserDefaults.standard.object(forKey: UserdefaultsHelper.usernameKey) as? String {
+        let index = sender.tag
+        DataPersistenceModel.deleteQuiz(userName: userName, index: index)
+        quizzes = DataPersistenceModel.getQuizzes(userName: userName)
+//        reloadData(userName: userName)
+        
+        }
+    }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "QuizCell", for: indexPath) as? QuizCollectionViewCell else {print("Cell is nil")
@@ -41,10 +55,14 @@ UICollectionViewDelegateFlowLayout, UICollectionViewDataSource {
         }
         let quizToSet = quizzes[indexPath.row]
         cell.quizLabel.text = quizToSet.quizTitle
+        cell.layer.borderColor = UIColor.black.cgColor
+        cell.layer.borderWidth = 2
+        cell.deleteButton.tag = indexPath.row
+        cell.deleteButton.addTarget(self, action: #selector(deleteWasPressed(sender:)), for: .touchUpInside)
         return cell
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize.init(width:200, height:100)
+        return CGSize.init(width:200, height:300)
     }
 }
 

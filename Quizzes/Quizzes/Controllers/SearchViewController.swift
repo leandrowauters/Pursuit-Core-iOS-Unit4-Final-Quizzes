@@ -9,7 +9,7 @@
 import UIKit
 
 class SearchViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
-
+    var alreadySave = [String]()
     var quizzes = [Quiz]() {
         didSet {
             DispatchQueue.main.async {
@@ -35,26 +35,14 @@ class SearchViewController: UIViewController, UICollectionViewDataSource, UIColl
     }
     @objc func addWasPressed(sender: UIButton) {
         if let userName = UserDefaults.standard.object(forKey: UserdefaultsHelper.usernameKey) as? String {
-        let index = sender.tag
-        let quizToSave = quizzes[index]
-        let alreadySave = DataPersistenceModel.getQuizzes(userName: userName)
-            for savedQuiz in alreadySave{
-                if savedQuiz.id == quizToSave.id {
-                    print("Already Saved")
-                } else {
-                    let saveAt = Date.getISOTimestamp()
-                    let savedQuiz = SavedQuiz.init(id: quizToSave.id, quizTitle: quizToSave.quizTitle, facts: quizToSave.facts, savedAt: saveAt)
-                    
-                    DataPersistenceModel.saveQuizz(userName: userName, quiz: savedQuiz)
-                }
-            }
-        let saveAt = Date.getISOTimestamp()
-        let savedQuiz = SavedQuiz.init(id: quizToSave.id, quizTitle: quizToSave.quizTitle, facts: quizToSave.facts, savedAt: saveAt)
-            
-        DataPersistenceModel.saveQuizz(userName: userName, quiz: savedQuiz)
-
+            let index = sender.tag
+            let quizToSave = quizzes[index]
+            let timeStamp = Date.getISOTimestamp()
+            let saveQuiz = SavedQuiz.init(id: quizToSave.id, quizTitle: quizToSave.quizTitle, facts: quizToSave.facts, savedAt: timeStamp)
+            DataPersistenceModel.saveQuizz(userName: userName, quiz: saveQuiz)
         }
     }
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return quizzes.count
     }

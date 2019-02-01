@@ -15,7 +15,6 @@ struct DataPersistenceModel {
 //    private static var userName = "UserName.plist"
     
     static func saveQuizzes(userName: String){
-        
         let path = DataPersistenceManager.filepathToDocumentsDiretory(filename: userName)
         do {
             let data = try PropertyListEncoder().encode(quizzes)
@@ -26,6 +25,11 @@ struct DataPersistenceModel {
     }
     static func saveQuizz(userName: String,quiz: SavedQuiz){
         quizzes.append(quiz)
+        saveQuizzes(userName: userName)
+    }
+    
+    static func deleteQuiz(userName: String, index: Int){
+        quizzes.remove(at: index)
         saveQuizzes(userName: userName)
     }
     static func getQuizzes(userName: String) -> [SavedQuiz]{
