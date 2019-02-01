@@ -37,10 +37,32 @@ class SearchViewController: UIViewController, UICollectionViewDataSource, UIColl
         if let userName = UserDefaults.standard.object(forKey: UserdefaultsHelper.usernameKey) as? String {
             let index = sender.tag
             let quizToSave = quizzes[index]
-            let timeStamp = Date.getISOTimestamp()
-            let saveQuiz = SavedQuiz.init(quizTitle: quizToSave.quizTitle, facts: quizToSave.facts, savedAt: timeStamp)
-            DataPersistenceModel.saveQuizz(userName: userName, quiz: saveQuiz)
+            var ids = [String]()
+            let quizzesSaved = DataPersistenceModel.getQuizzes(userName: userName)
+            for quiz in quizzesSaved {
+                ids.append(quiz.id)
+            }
+            if ids.contains(quizToSave.id){
+                let alert = UIAlertController(title: "Quiz already saved", message: "Please choose another one", preferredStyle: .alert)
+                let okay = UIAlertAction(title: "Okay", style: .default) { (UIAlertAction) in
+                    self.dismiss(animated: true, completion: nil)
+
+                }
+                alert.addAction(okay)
+                present(alert, animated: true, completion: nil)
+                    } else {
+                        let timeStamp = Date.getISOTimestamp()
+                        let saveQuiz = SavedQuiz.init(id: quizToSave.id ,quizTitle: quizToSave.quizTitle, facts: quizToSave.facts, savedAt: timeStamp)
+                        DataPersistenceModel.saveQuizz(userName: userName, quiz: saveQuiz)
+                    let alert = UIAlertController(title: "Quiz Saved To Quizzes", message: nil, preferredStyle: .alert)
+                    let okay = UIAlertAction(title: "Okay", style: .default) { (UIAlertAction) in
+                    self.dismiss(animated: true, completion: nil)
+                    
+                }
+                    alert.addAction(okay)
+                    present(alert, animated: true, completion: nil)
         }
+    }
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {

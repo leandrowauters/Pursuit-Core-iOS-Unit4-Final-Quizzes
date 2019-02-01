@@ -99,7 +99,6 @@
 				577118D822037B4000B9DD0B /* File Manager Helpers */,
 				D54B439722049D2B00D5520F /* Controllers */,
 				D53221632204B7F800773748 /* Views */,
-				D532215A2204B3E800773748 /* UserdefaultsHelper.swift */,
 				577118DB22037B7C00B9DD0B /* Date Utilities */,
 				577118D322037A7300B9DD0B /* Supporting Files */,
 				577118CC2203796B00B9DD0B /* Info.plist */,
@@ -132,6 +131,7 @@
 			children = (
 				577118D922037B5B00B9DD0B /* DataPersistenceManager.swift */,
 				D532215F2204B4C400773748 /* DataPersistenceModel.swift */,
+				D532215A2204B3E800773748 /* UserdefaultsHelper.swift */,
 			);
 			path = "File Manager Helpers";
 			sourceTree = "<group>";
