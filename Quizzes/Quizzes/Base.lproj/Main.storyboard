@@ -97,6 +97,7 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fIo-79-eTV">
                                         <rect key="frame" x="129" y="8" width="117" height="115"/>
                                         <connections>
+                                            <action selector="imageButtonPressed:" destination="OIy-hV-TnG" eventType="touchUpInside" id="PJt-oC-zPn"/>
                                             <action selector="profileButtonWasPressed:" destination="OIy-hV-TnG" eventType="touchUpInside" id="13v-v3-qSi"/>
                                         </connections>
                                     </button>

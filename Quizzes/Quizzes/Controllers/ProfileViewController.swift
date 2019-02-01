@@ -20,9 +20,11 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var profileImage: UIImageView!
     @IBOutlet weak var profileButton: UIButton!
     
+    private var imagePickerViewController: UIImagePickerController!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupImagePickerViewController()
         if let userName = UserDefaults.standard.object(forKey: "UserName") as? String {
             profileButton.setTitle(userName, for: .normal)
         } else {
@@ -33,7 +35,21 @@ class ProfileViewController: UIViewController {
 //        }
         // Do any additional setup after loading the view.
     }
+    private func setupImagePickerViewController(){
+        imagePickerViewController = UIImagePickerController()
+        imagePickerViewController.delegate = self
+//        if !UIImagePickerController.isSourceTypeAvailable(.camera){
+//            cameraButton.isEnabled = false
+//        }
+    }
+    private func showImagePickerController() {
+        present(imagePickerViewController,animated: true,completion:  nil)
+    }
     
+    @IBAction func imageButtonPressed(_ sender: UIButton) {
+        showImagePickerController()
+        imagePickerViewController.sourceType = .photoLibrary
+    }
     @IBAction func profileButtonWasPressed(_ sender: UIButton) {
         
     }
@@ -58,4 +74,18 @@ class ProfileViewController: UIViewController {
     }
 
 
+}
+
+extension ProfileViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate{
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+    dismiss(animated: true, completion: nil)
+    }
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        if let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
+           profileImage.image = image
+        } else {
+            print("Image Nil")
+        }
+    dismiss(animated: true, completion: nil)
+    }
 }
