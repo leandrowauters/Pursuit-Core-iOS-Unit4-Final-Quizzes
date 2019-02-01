@@ -17,7 +17,8 @@ enum ProfileState {
 class ProfileViewController: UIViewController {
     
 //    var profileState: ProfileState = .notLoggedIn
-    @IBOutlet weak var profileImage: UIImageView!
+
+    @IBOutlet weak var profileImageButton: UIButton!
     @IBOutlet weak var profileButton: UIButton!
     
     private var imagePickerViewController: UIImagePickerController!
@@ -32,7 +33,7 @@ class ProfileViewController: UIViewController {
         }
         if let imageData = UserDefaults.standard.object(forKey: UserdefaultsHelper.userImageKey) as? Data{
             if let image = UIImage(data: imageData){
-                profileImage.image = image
+                profileImageButton.setImage(image, for: .normal)
             }
         }
 //        if profileState == .notLoggedIn{
@@ -87,7 +88,7 @@ extension ProfileViewController: UIImagePickerControllerDelegate, UINavigationCo
     }
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         if let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
-           profileImage.image = image
+           profileImageButton.setImage(image, for: .normal)
            let imageToSave = image.jpegData(compressionQuality: 0.5)
             UserDefaults.standard.set(imageToSave, forKey: "UserImage")
         } else {

@@ -26,6 +26,8 @@
 		D53221692204BF8600773748 /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = D53221682204BF8600773748 /* APIClient.swift */; };
 		D532216B2204C50F00773748 /* SavedQuiz.swift in Sources */ = {isa = PBXBuildFile; fileRef = D532216A2204C50F00773748 /* SavedQuiz.swift */; };
 		D532216D2204CBC000773748 /* QuizCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D532216C2204CBC000773748 /* QuizCollectionViewCell.swift */; };
+		D532216F2204F31700773748 /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D532216E2204F31700773748 /* DetailView.swift */; };
+		D53221712204F44300773748 /* DetailCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D53221702204F44300773748 /* DetailCollectionViewCell.swift */; };
 		D54B439222049CF500D5520F /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D54B439122049CF500D5520F /* SearchViewController.swift */; };
 		D54B439422049D0D00D5520F /* CreateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D54B439322049D0D00D5520F /* CreateViewController.swift */; };
 		D54B439622049D1B00D5520F /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D54B439522049D1B00D5520F /* ProfileViewController.swift */; };
@@ -54,6 +56,8 @@
 		D53221682204BF8600773748 /* APIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
 		D532216A2204C50F00773748 /* SavedQuiz.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedQuiz.swift; sourceTree = "<group>"; };
 		D532216C2204CBC000773748 /* QuizCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizCollectionViewCell.swift; sourceTree = "<group>"; };
+		D532216E2204F31700773748 /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
+		D53221702204F44300773748 /* DetailCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailCollectionViewCell.swift; sourceTree = "<group>"; };
 		D54B439122049CF500D5520F /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		D54B439322049D0D00D5520F /* CreateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateViewController.swift; sourceTree = "<group>"; };
 		D54B439522049D1B00D5520F /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
@@ -155,9 +159,11 @@
 			isa = PBXGroup;
 			children = (
 				D532216C2204CBC000773748 /* QuizCollectionViewCell.swift */,
+				D532216E2204F31700773748 /* DetailView.swift */,
 				D53221642204BAAB00773748 /* SearchCellCollectionViewCell.swift */,
 				577118C42203796A00B9DD0B /* Main.storyboard */,
 				D53221612204B7EB00773748 /* SearchView.swift */,
+				D53221702204F44300773748 /* DetailCollectionViewCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -255,6 +261,8 @@
 				D54B439222049CF500D5520F /* SearchViewController.swift in Sources */,
 				D532216B2204C50F00773748 /* SavedQuiz.swift in Sources */,
 				577118C12203796A00B9DD0B /* AppDelegate.swift in Sources */,
+				D532216F2204F31700773748 /* DetailView.swift in Sources */,
+				D53221712204F44300773748 /* DetailCollectionViewCell.swift in Sources */,
 				577118D522037A9F00B9DD0B /* AppError.swift in Sources */,
 				577118DA22037B5B00B9DD0B /* DataPersistenceManager.swift in Sources */,
 				D53221622204B7EB00773748 /* SearchView.swift in Sources */,

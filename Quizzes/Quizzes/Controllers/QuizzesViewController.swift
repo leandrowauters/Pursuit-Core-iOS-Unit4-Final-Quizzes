@@ -44,8 +44,6 @@ UICollectionViewDelegateFlowLayout, UICollectionViewDataSource {
         let index = sender.tag
         DataPersistenceModel.deleteQuiz(userName: userName, index: index)
         quizzes = DataPersistenceModel.getQuizzes(userName: userName)
-//        reloadData(userName: userName)
-        
         }
     }
     
@@ -63,6 +61,10 @@ UICollectionViewDelegateFlowLayout, UICollectionViewDataSource {
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize.init(width:200, height:300)
+    }
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let selectedQuiz = quizzes[indexPath.row]
+        
     }
 }
 

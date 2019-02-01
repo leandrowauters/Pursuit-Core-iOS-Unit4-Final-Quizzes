@@ -34,7 +34,6 @@
                                             <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </view>
-                                        <color key="backgroundColor" red="0.29803921570000003" green="0.70980392160000005" blue="0.96078431369999995" alpha="1" colorSpace="calibratedRGB"/>
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
@@ -50,7 +49,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="nrl-FE-iXl"/>
                     <connections>
-                        <outlet property="quizzesCollectionView" destination="lXe-rh-7th" id="GiN-9e-dRD"/>
+                        <outlet property="quizzesCollectionView" destination="lXe-rh-7th" id="9Nu-vy-bpK"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -115,19 +114,17 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="P52-nk-dx3">
                                 <rect key="frame" x="0.0" y="91.5" width="375" height="200"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="rM8-dI-VDu">
-                                        <rect key="frame" x="129" y="8" width="117" height="115"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="115" id="6A1-9p-9Gj"/>
-                                            <constraint firstAttribute="width" constant="117" id="HaK-oc-ILx"/>
-                                        </constraints>
-                                    </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3rP-1i-zVa">
                                         <rect key="frame" x="164.5" y="139" width="46" height="30"/>
                                         <state key="normal" title="Button"/>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fIo-79-eTV">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fIo-79-eTV">
                                         <rect key="frame" x="129" y="8" width="117" height="115"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="115" id="ovM-ca-D4t"/>
+                                            <constraint firstAttribute="width" constant="117" id="pjY-wr-3hn"/>
+                                        </constraints>
+                                        <state key="normal" image="placeholder-image"/>
                                         <connections>
                                             <action selector="imageButtonPressed:" destination="OIy-hV-TnG" eventType="touchUpInside" id="PJt-oC-zPn"/>
                                             <action selector="profileButtonWasPressed:" destination="OIy-hV-TnG" eventType="touchUpInside" id="13v-v3-qSi"/>
@@ -136,15 +133,11 @@
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstItem="fIo-79-eTV" firstAttribute="centerX" secondItem="rM8-dI-VDu" secondAttribute="centerX" id="5vs-cw-6ua"/>
-                                    <constraint firstItem="rM8-dI-VDu" firstAttribute="top" secondItem="P52-nk-dx3" secondAttribute="top" constant="8" id="Ikx-wG-yAP"/>
-                                    <constraint firstItem="fIo-79-eTV" firstAttribute="centerY" secondItem="rM8-dI-VDu" secondAttribute="centerY" id="NxZ-JW-2dB"/>
-                                    <constraint firstItem="3rP-1i-zVa" firstAttribute="centerX" secondItem="rM8-dI-VDu" secondAttribute="centerX" id="Oq4-QW-SFI"/>
+                                    <constraint firstItem="3rP-1i-zVa" firstAttribute="centerX" secondItem="fIo-79-eTV" secondAttribute="centerX" id="5W3-Z3-SdA"/>
+                                    <constraint firstItem="3rP-1i-zVa" firstAttribute="top" secondItem="fIo-79-eTV" secondAttribute="bottom" constant="16" id="Cef-62-wbo"/>
                                     <constraint firstAttribute="height" constant="200" id="Qsw-kv-DP2"/>
-                                    <constraint firstItem="rM8-dI-VDu" firstAttribute="centerX" secondItem="P52-nk-dx3" secondAttribute="centerX" id="Vbf-ZF-tao"/>
-                                    <constraint firstItem="3rP-1i-zVa" firstAttribute="top" secondItem="rM8-dI-VDu" secondAttribute="bottom" constant="16" id="VsP-Oi-GI9"/>
-                                    <constraint firstItem="fIo-79-eTV" firstAttribute="height" secondItem="rM8-dI-VDu" secondAttribute="height" id="b78-xz-r8a"/>
-                                    <constraint firstItem="fIo-79-eTV" firstAttribute="width" secondItem="rM8-dI-VDu" secondAttribute="width" id="fxL-pb-Azo"/>
+                                    <constraint firstItem="fIo-79-eTV" firstAttribute="centerX" secondItem="P52-nk-dx3" secondAttribute="centerX" id="Wre-Kb-EpR"/>
+                                    <constraint firstItem="fIo-79-eTV" firstAttribute="top" secondItem="P52-nk-dx3" secondAttribute="top" constant="8" id="axn-cO-cFp"/>
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Edit Photo" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="23h-Ji-rqw">
@@ -169,7 +162,7 @@
                     <tabBarItem key="tabBarItem" title="Profile" id="oJs-3Z-Wnx"/>
                     <connections>
                         <outlet property="profileButton" destination="3rP-1i-zVa" id="nEu-xp-evH"/>
-                        <outlet property="profileImage" destination="rM8-dI-VDu" id="v09-cx-IXe"/>
+                        <outlet property="profileImageButton" destination="fIo-79-eTV" id="fVh-FT-Tp3"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3PG-hb-Fcz" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -217,4 +210,7 @@
             <point key="canvasLocation" x="952.79999999999995" y="133.5832083958021"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="placeholder-image" width="512" height="512"/>
+    </resources>
 </document>
