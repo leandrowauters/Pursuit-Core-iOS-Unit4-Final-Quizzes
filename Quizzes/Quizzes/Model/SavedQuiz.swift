@@ -9,7 +9,6 @@
 import Foundation
 
 struct SavedQuiz: Codable {
-    let id: String
     let quizTitle: String
     let facts: [String]
     let savedAt: String

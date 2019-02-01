@@ -38,7 +38,7 @@ class SearchViewController: UIViewController, UICollectionViewDataSource, UIColl
             let index = sender.tag
             let quizToSave = quizzes[index]
             let timeStamp = Date.getISOTimestamp()
-            let saveQuiz = SavedQuiz.init(id: quizToSave.id, quizTitle: quizToSave.quizTitle, facts: quizToSave.facts, savedAt: timeStamp)
+            let saveQuiz = SavedQuiz.init(quizTitle: quizToSave.quizTitle, facts: quizToSave.facts, savedAt: timeStamp)
             DataPersistenceModel.saveQuizz(userName: userName, quiz: saveQuiz)
         }
     }

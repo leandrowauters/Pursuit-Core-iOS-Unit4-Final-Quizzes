@@ -78,10 +78,70 @@
                     <view key="view" contentMode="scaleToFill" id="J9V-iy-TTc">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Sty-BF-LS3">
+                                <rect key="frame" x="20" y="82" width="335" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="xIE-lz-MDF">
+                                <rect key="frame" x="20" y="157" width="335" height="150"/>
+                                <color key="backgroundColor" white="0.82307719748858432" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="150" id="x0h-A3-pdU"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="THI-Vs-vRP">
+                                <rect key="frame" x="20" y="352" width="335" height="150"/>
+                                <color key="backgroundColor" white="0.85799265128904101" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1ZX-sd-MAl">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                <items>
+                                    <navigationItem title="Title" id="Iob-yz-Zcz">
+                                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="Lb5-ct-H6P">
+                                            <connections>
+                                                <action selector="cancelWasPressed:" destination="gpp-6O-guH" id="bUT-wm-XKa"/>
+                                            </connections>
+                                        </barButtonItem>
+                                        <barButtonItem key="rightBarButtonItem" title="Create" id="khu-CK-r3p">
+                                            <connections>
+                                                <action selector="createWasPressed:" destination="gpp-6O-guH" id="6sr-RD-9Ca"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="1ZX-sd-MAl" firstAttribute="top" secondItem="J9V-iy-TTc" secondAttribute="top" id="7ew-8d-FiP"/>
+                            <constraint firstItem="THI-Vs-vRP" firstAttribute="height" secondItem="xIE-lz-MDF" secondAttribute="height" id="AOt-4I-vnG"/>
+                            <constraint firstItem="THI-Vs-vRP" firstAttribute="leading" secondItem="MMA-ng-CRC" secondAttribute="leading" constant="20" id="IMF-3t-y5i"/>
+                            <constraint firstItem="1ZX-sd-MAl" firstAttribute="leading" secondItem="MMA-ng-CRC" secondAttribute="leading" id="Qvh-OH-94d"/>
+                            <constraint firstItem="xIE-lz-MDF" firstAttribute="leading" secondItem="MMA-ng-CRC" secondAttribute="leading" constant="20" id="ReM-o3-Ngc"/>
+                            <constraint firstItem="Sty-BF-LS3" firstAttribute="leading" secondItem="MMA-ng-CRC" secondAttribute="leading" constant="20" id="S9p-fv-lxv"/>
+                            <constraint firstItem="MMA-ng-CRC" firstAttribute="trailing" secondItem="xIE-lz-MDF" secondAttribute="trailing" constant="20" id="T1L-wr-2qX"/>
+                            <constraint firstItem="MMA-ng-CRC" firstAttribute="trailing" secondItem="Sty-BF-LS3" secondAttribute="trailing" constant="20" id="UCk-iO-IV7"/>
+                            <constraint firstItem="Sty-BF-LS3" firstAttribute="top" secondItem="MMA-ng-CRC" secondAttribute="top" constant="62" id="eGH-Jq-efy"/>
+                            <constraint firstItem="1ZX-sd-MAl" firstAttribute="trailing" secondItem="MMA-ng-CRC" secondAttribute="trailing" id="fv3-0R-JWc"/>
+                            <constraint firstItem="THI-Vs-vRP" firstAttribute="top" secondItem="xIE-lz-MDF" secondAttribute="bottom" constant="45" id="g9d-oC-WHc"/>
+                            <constraint firstItem="xIE-lz-MDF" firstAttribute="top" secondItem="Sty-BF-LS3" secondAttribute="bottom" constant="45" id="q7g-Kd-YHA"/>
+                            <constraint firstItem="MMA-ng-CRC" firstAttribute="trailing" secondItem="THI-Vs-vRP" secondAttribute="trailing" constant="20" id="yix-wo-oZ6"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="MMA-ng-CRC"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Create" id="MAJ-R7-rDU"/>
+                    <connections>
+                        <outlet property="quizFact1TextView" destination="xIE-lz-MDF" id="Omr-eb-c0g"/>
+                        <outlet property="quizFact2TextView" destination="THI-Vs-vRP" id="t1O-UZ-UJE"/>
+                        <outlet property="quizTitle" destination="Sty-BF-LS3" id="TrM-Ea-OfH"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LQo-51-icb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
