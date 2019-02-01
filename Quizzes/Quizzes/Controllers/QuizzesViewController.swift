@@ -41,9 +41,17 @@ UICollectionViewDelegateFlowLayout, UICollectionViewDataSource {
     }
     @objc func deleteWasPressed(sender: UIButton){
         if let userName = UserDefaults.standard.object(forKey: UserdefaultsHelper.usernameKey) as? String {
-        let index = sender.tag
-        DataPersistenceModel.deleteQuiz(userName: userName, index: index)
-        quizzes = DataPersistenceModel.getQuizzes(userName: userName)
+            let index = sender.tag
+            let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+            let deleteAction = UIAlertAction(title: "Delete", style: .destructive) { alert in
+                DataPersistenceModel.deleteQuiz(userName: userName, index: index)
+            self.quizzes = DataPersistenceModel.getQuizzes(userName: userName)
+            }
+            let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
+            alertController.addAction(deleteAction)
+            alertController.addAction(cancelAction)
+            present(alertController, animated: true)
+            
         }
     }
     
@@ -63,6 +71,7 @@ UICollectionViewDelegateFlowLayout, UICollectionViewDataSource {
         return CGSize.init(width:200, height:300)
     }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+
         let selectedQuiz = quizzes[indexPath.row]
         let detailVC = DetailViewController.init(quizFacts: selectedQuiz.facts, quizTitle: selectedQuiz.quizTitle)
         navigationController?.pushViewController(detailVC, animated: true)
