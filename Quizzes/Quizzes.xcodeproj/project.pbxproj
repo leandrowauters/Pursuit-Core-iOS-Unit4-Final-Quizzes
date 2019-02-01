@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		577118C12203796A00B9DD0B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 577118C02203796A00B9DD0B /* AppDelegate.swift */; };
-		577118C32203796A00B9DD0B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 577118C22203796A00B9DD0B /* ViewController.swift */; };
+		577118C32203796A00B9DD0B /* QuizzesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 577118C22203796A00B9DD0B /* QuizzesViewController.swift */; };
 		577118C62203796A00B9DD0B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 577118C42203796A00B9DD0B /* Main.storyboard */; };
 		577118C82203796B00B9DD0B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 577118C72203796B00B9DD0B /* Assets.xcassets */; };
 		577118CB2203796B00B9DD0B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 577118C92203796B00B9DD0B /* LaunchScreen.storyboard */; };
@@ -17,12 +17,16 @@
 		577118DA22037B5B00B9DD0B /* DataPersistenceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 577118D922037B5B00B9DD0B /* DataPersistenceManager.swift */; };
 		577118DD22037B8E00B9DD0B /* Date+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 577118DC22037B8E00B9DD0B /* Date+Extensions.swift */; };
 		577118DF22037BAA00B9DD0B /* String+DateExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 577118DE22037BAA00B9DD0B /* String+DateExtensions.swift */; };
+		D54B439222049CF500D5520F /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D54B439122049CF500D5520F /* SearchViewController.swift */; };
+		D54B439422049D0D00D5520F /* CreateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D54B439322049D0D00D5520F /* CreateViewController.swift */; };
+		D54B439622049D1B00D5520F /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D54B439522049D1B00D5520F /* ProfileViewController.swift */; };
+		D54B439922049DE900D5520F /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D54B439822049DE900D5520F /* DetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		577118BD2203796A00B9DD0B /* Quizzes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Quizzes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		577118C02203796A00B9DD0B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		577118C22203796A00B9DD0B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		577118C22203796A00B9DD0B /* QuizzesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizzesViewController.swift; sourceTree = "<group>"; };
 		577118C52203796A00B9DD0B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		577118C72203796B00B9DD0B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		577118CA2203796B00B9DD0B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -32,6 +36,10 @@
 		577118D922037B5B00B9DD0B /* DataPersistenceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataPersistenceManager.swift; sourceTree = "<group>"; };
 		577118DC22037B8E00B9DD0B /* Date+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extensions.swift"; sourceTree = "<group>"; };
 		577118DE22037BAA00B9DD0B /* String+DateExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+DateExtensions.swift"; sourceTree = "<group>"; };
+		D54B439122049CF500D5520F /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		D54B439322049D0D00D5520F /* CreateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateViewController.swift; sourceTree = "<group>"; };
+		D54B439522049D1B00D5520F /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		D54B439822049DE900D5520F /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,7 +74,7 @@
 			children = (
 				577118D222037A6200B9DD0B /* Network Services */,
 				577118D822037B4000B9DD0B /* File Manager Helpers */,
-				577118C22203796A00B9DD0B /* ViewController.swift */,
+				D54B439722049D2B00D5520F /* Controllers */,
 				577118C42203796A00B9DD0B /* Main.storyboard */,
 				577118DB22037B7C00B9DD0B /* Date Utilities */,
 				577118D322037A7300B9DD0B /* Supporting Files */,
@@ -109,6 +117,18 @@
 				577118DE22037BAA00B9DD0B /* String+DateExtensions.swift */,
 			);
 			path = "Date Utilities";
+			sourceTree = "<group>";
+		};
+		D54B439722049D2B00D5520F /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				D54B439822049DE900D5520F /* DetailViewController.swift */,
+				577118C22203796A00B9DD0B /* QuizzesViewController.swift */,
+				D54B439122049CF500D5520F /* SearchViewController.swift */,
+				D54B439522049D1B00D5520F /* ProfileViewController.swift */,
+				D54B439322049D0D00D5520F /* CreateViewController.swift */,
+			);
+			path = Controllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -183,10 +203,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				577118D722037ABA00B9DD0B /* NetworkHelper.swift in Sources */,
-				577118C32203796A00B9DD0B /* ViewController.swift in Sources */,
+				577118C32203796A00B9DD0B /* QuizzesViewController.swift in Sources */,
+				D54B439622049D1B00D5520F /* ProfileViewController.swift in Sources */,
+				D54B439422049D0D00D5520F /* CreateViewController.swift in Sources */,
+				D54B439222049CF500D5520F /* SearchViewController.swift in Sources */,
 				577118C12203796A00B9DD0B /* AppDelegate.swift in Sources */,
 				577118D522037A9F00B9DD0B /* AppError.swift in Sources */,
 				577118DA22037B5B00B9DD0B /* DataPersistenceManager.swift in Sources */,
+				D54B439922049DE900D5520F /* DetailViewController.swift in Sources */,
 				577118DF22037BAA00B9DD0B /* String+DateExtensions.swift in Sources */,
 				577118DD22037B8E00B9DD0B /* Date+Extensions.swift in Sources */,
 			);
