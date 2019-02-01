@@ -30,7 +30,7 @@ class ProfileViewController: UIViewController {
         } else {
             showAlert()
         }
-        if let imageData = UserDefaults.standard.object(forKey: "UserImage") as? Data{
+        if let imageData = UserDefaults.standard.object(forKey: UserdefaultsHelper.userImageKey) as? Data{
             if let image = UIImage(data: imageData){
                 profileImage.image = image
             }

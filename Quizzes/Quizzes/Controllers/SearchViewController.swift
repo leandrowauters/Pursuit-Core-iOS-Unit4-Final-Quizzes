@@ -8,23 +8,42 @@
 
 import UIKit
 
-class SearchViewController: UIViewController {
+class SearchViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
 
+    var quizzes = [Quiz]() {
+        didSet {
+            DispatchQueue.main.async {
+                self.searchView.quizzesCollectionView.reloadData()
+            }
+        }
+    }
+    var searchView = SearchView()
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        view.addSubview(searchView)
+        searchView.quizzesCollectionView.delegate = self
+        searchView.quizzesCollectionView.dataSource = self
+        APIClient.getQuizzes { (appError, quizzes) in
+            if let appError = appError {
+                print(AppError.errorMessage(appError))
+            }
+            if let quizzes = quizzes {
+                self.quizzes = quizzes
+            }
+        }
         // Do any additional setup after loading the view.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return quizzes.count
     }
-    */
-
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "SearchCell", for: indexPath) as? SearchCellCollectionViewCell else {print("Cell Not Found")
+            return UICollectionViewCell()}
+        let quizToShow = quizzes[indexPath.row]
+        cell.quizLabel.text = quizToShow.quizTitle
+        return cell
+    }
+    
 }
