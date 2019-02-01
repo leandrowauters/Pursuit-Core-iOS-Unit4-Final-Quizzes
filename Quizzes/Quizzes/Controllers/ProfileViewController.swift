@@ -30,6 +30,11 @@ class ProfileViewController: UIViewController {
         } else {
             showAlert()
         }
+        if let imageData = UserDefaults.standard.object(forKey: "UserImage") as? Data{
+            if let image = UIImage(data: imageData){
+                profileImage.image = image
+            }
+        }
 //        if profileState == .notLoggedIn{
 //            showAlert()
 //        }
@@ -83,6 +88,8 @@ extension ProfileViewController: UIImagePickerControllerDelegate, UINavigationCo
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         if let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
            profileImage.image = image
+           let imageToSave = image.jpegData(compressionQuality: 0.5)
+            UserDefaults.standard.set(imageToSave, forKey: "UserImage")
         } else {
             print("Image Nil")
         }
