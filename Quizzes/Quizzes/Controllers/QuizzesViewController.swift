@@ -64,6 +64,8 @@ UICollectionViewDelegateFlowLayout, UICollectionViewDataSource {
     }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let selectedQuiz = quizzes[indexPath.row]
+        let detailVC = DetailViewController.init(quizFacts: selectedQuiz.facts, quizTitle: selectedQuiz.quizTitle)
+        navigationController?.pushViewController(detailVC, animated: true)
         
     }
 }

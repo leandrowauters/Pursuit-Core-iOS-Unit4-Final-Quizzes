@@ -31,10 +31,16 @@ class DetailView: UIView {
     }
     
     private func commonInit(){
-        setupViews()
+        setupCollectionView()
+        quizDetailCollectionView.register(DetailCollectionViewCell.self, forCellWithReuseIdentifier: "DetailCell")
     }
     
-    private func setupViews(){
-        
+    private func setupCollectionView(){
+        addSubview(quizDetailCollectionView)
+        quizDetailCollectionView.translatesAutoresizingMaskIntoConstraints = false
+        quizDetailCollectionView.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
+       quizDetailCollectionView.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
+        quizDetailCollectionView.heightAnchor.constraint(equalTo: heightAnchor).isActive = true
+        quizDetailCollectionView.widthAnchor.constraint(equalTo: widthAnchor).isActive = true
     }
 }
