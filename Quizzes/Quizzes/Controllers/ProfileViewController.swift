@@ -16,16 +16,21 @@ enum ProfileState {
 
 class ProfileViewController: UIViewController {
     
-    var profileState: ProfileState = .notLoggedIn
+//    var profileState: ProfileState = .notLoggedIn
     @IBOutlet weak var profileImage: UIImageView!
     @IBOutlet weak var profileButton: UIButton!
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        if profileState == .notLoggedIn{
+        if let userName = UserDefaults.standard.object(forKey: "UserName") as? String {
+            profileButton.setTitle(userName, for: .normal)
+        } else {
             showAlert()
         }
+//        if profileState == .notLoggedIn{
+//            showAlert()
+//        }
         // Do any additional setup after loading the view.
     }
     
@@ -43,6 +48,8 @@ class ProfileViewController: UIViewController {
             if var text = alert.textFields?.first?.text{
                 text.insert("@", at: text.startIndex)
                 self.profileButton.setTitle(text, for: .normal)
+//                self.profileState = .loggedIn
+                UserDefaults.standard.set(text, forKey: "UserName")
                 
             }
         }
