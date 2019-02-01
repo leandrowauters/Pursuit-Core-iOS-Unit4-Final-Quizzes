@@ -24,6 +24,8 @@
 		D53221652204BAAB00773748 /* SearchCellCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D53221642204BAAB00773748 /* SearchCellCollectionViewCell.swift */; };
 		D53221672204BEFA00773748 /* Quiz.swift in Sources */ = {isa = PBXBuildFile; fileRef = D53221662204BEFA00773748 /* Quiz.swift */; };
 		D53221692204BF8600773748 /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = D53221682204BF8600773748 /* APIClient.swift */; };
+		D532216B2204C50F00773748 /* SavedQuiz.swift in Sources */ = {isa = PBXBuildFile; fileRef = D532216A2204C50F00773748 /* SavedQuiz.swift */; };
+		D532216D2204CBC000773748 /* QuizCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D532216C2204CBC000773748 /* QuizCollectionViewCell.swift */; };
 		D54B439222049CF500D5520F /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D54B439122049CF500D5520F /* SearchViewController.swift */; };
 		D54B439422049D0D00D5520F /* CreateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D54B439322049D0D00D5520F /* CreateViewController.swift */; };
 		D54B439622049D1B00D5520F /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D54B439522049D1B00D5520F /* ProfileViewController.swift */; };
@@ -50,6 +52,8 @@
 		D53221642204BAAB00773748 /* SearchCellCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCellCollectionViewCell.swift; sourceTree = "<group>"; };
 		D53221662204BEFA00773748 /* Quiz.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Quiz.swift; path = Quizzes/Model/Quiz.swift; sourceTree = SOURCE_ROOT; };
 		D53221682204BF8600773748 /* APIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
+		D532216A2204C50F00773748 /* SavedQuiz.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedQuiz.swift; sourceTree = "<group>"; };
+		D532216C2204CBC000773748 /* QuizCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizCollectionViewCell.swift; sourceTree = "<group>"; };
 		D54B439122049CF500D5520F /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		D54B439322049D0D00D5520F /* CreateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateViewController.swift; sourceTree = "<group>"; };
 		D54B439522049D1B00D5520F /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
@@ -142,6 +146,7 @@
 			children = (
 				D532215C2204B46100773748 /* User.swift */,
 				D53221662204BEFA00773748 /* Quiz.swift */,
+				D532216A2204C50F00773748 /* SavedQuiz.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -149,6 +154,7 @@
 		D53221632204B7F800773748 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				D532216C2204CBC000773748 /* QuizCollectionViewCell.swift */,
 				D53221642204BAAB00773748 /* SearchCellCollectionViewCell.swift */,
 				577118C42203796A00B9DD0B /* Main.storyboard */,
 				D53221612204B7EB00773748 /* SearchView.swift */,
@@ -247,12 +253,14 @@
 				D54B439622049D1B00D5520F /* ProfileViewController.swift in Sources */,
 				D54B439422049D0D00D5520F /* CreateViewController.swift in Sources */,
 				D54B439222049CF500D5520F /* SearchViewController.swift in Sources */,
+				D532216B2204C50F00773748 /* SavedQuiz.swift in Sources */,
 				577118C12203796A00B9DD0B /* AppDelegate.swift in Sources */,
 				577118D522037A9F00B9DD0B /* AppError.swift in Sources */,
 				577118DA22037B5B00B9DD0B /* DataPersistenceManager.swift in Sources */,
 				D53221622204B7EB00773748 /* SearchView.swift in Sources */,
 				D54B439922049DE900D5520F /* DetailViewController.swift in Sources */,
 				D53221672204BEFA00773748 /* Quiz.swift in Sources */,
+				D532216D2204CBC000773748 /* QuizCollectionViewCell.swift in Sources */,
 				577118DF22037BAA00B9DD0B /* String+DateExtensions.swift in Sources */,
 				577118DD22037B8E00B9DD0B /* Date+Extensions.swift in Sources */,
 				D53221602204B4C400773748 /* DataPersistenceModel.swift in Sources */,

@@ -11,28 +11,30 @@ import Foundation
 
 struct DataPersistenceModel {
     
-    private static var users = [User]()
-    private static var userName = "UserName.plist"
+    private static var quizzes = [SavedQuiz]()
+//    private static var userName = "UserName.plist"
     
-    static func saveUser(){
+    static func saveQuizzes(userName: String){
+        
         let path = DataPersistenceManager.filepathToDocumentsDiretory(filename: userName)
         do {
-            let data = try PropertyListEncoder().encode(users)
+            let data = try PropertyListEncoder().encode(quizzes)
             try data.write(to: path, options: .atomic)
         } catch {
             print("Property list encoding error \(error)")
         }
     }
-    static func saveUser(userName: User){
-        users.append(userName)
-        saveUser()
+    static func saveQuizz(userName: String,quiz: SavedQuiz){
+        quizzes.append(quiz)
+        saveQuizzes(userName: userName)
     }
-    static func getUsers() -> [User]{
+    static func getQuizzes(userName: String) -> [SavedQuiz]{
+        
         let path = DataPersistenceManager.filepathToDocumentsDiretory(filename: userName).path
         if FileManager.default.fileExists(atPath: path){
             if let data = FileManager.default.contents(atPath: path){
                 do {
-                    users = try PropertyListDecoder().decode([User].self, from: data)
+                    quizzes = try PropertyListDecoder().decode([SavedQuiz].self, from: data)
                 }catch{
                     print("Property list decoding error: \(error)")
                 }
@@ -42,7 +44,7 @@ struct DataPersistenceModel {
         } else {
             print("\(userName) does not exist")
         }
-        return users
+        return quizzes
     }
     
 }
