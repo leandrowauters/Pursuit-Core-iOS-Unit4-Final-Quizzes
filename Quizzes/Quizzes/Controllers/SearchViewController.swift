@@ -54,15 +54,14 @@ class SearchViewController: UIViewController, UICollectionViewDataSource, UIColl
                         let timeStamp = Date.getISOTimestamp()
                         let saveQuiz = SavedQuiz.init(id: quizToSave.id ,quizTitle: quizToSave.quizTitle, facts: quizToSave.facts, savedAt: timeStamp)
                         DataPersistenceModel.saveQuizz(userName: userName, quiz: saveQuiz)
-                    let alert = UIAlertController(title: "Quiz Saved To Quizzes", message: nil, preferredStyle: .alert)
-                    let okay = UIAlertAction(title: "Okay", style: .default) { (UIAlertAction) in
-                    self.dismiss(animated: true, completion: nil)
-                    
+                        let alert = UIAlertController(title: "Quiz Saved To Quizzes", message: nil, preferredStyle: .alert)
+                        let okay = UIAlertAction(title: "Okay", style: .default) { (UIAlertAction) in
+                            self.dismiss(animated: true, completion: nil)
                 }
                     alert.addAction(okay)
                     present(alert, animated: true, completion: nil)
+            }
         }
-    }
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {

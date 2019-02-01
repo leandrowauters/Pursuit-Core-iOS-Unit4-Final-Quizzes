@@ -22,6 +22,7 @@ UICollectionViewDelegateFlowLayout, UICollectionViewDataSource {
     }
   override func viewDidLoad() {
     super.viewDidLoad()
+    self.tabBarController?.delegate = UIApplication.shared.delegate as? UITabBarControllerDelegate
     quizzesCollectionView.delegate = self
     quizzesCollectionView.dataSource = self
     quizzesCollectionView.register(QuizCollectionViewCell.self, forCellWithReuseIdentifier: "QuizCell")

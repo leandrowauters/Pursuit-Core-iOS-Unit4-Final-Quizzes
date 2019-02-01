@@ -41,7 +41,7 @@ class CreateViewController: UIViewController {
         }
     }
     @IBAction func cancelWasPressed(_ sender: UIBarButtonItem) {
-        
+        dismiss(animated: true, completion: nil)
     }
     
     /*
