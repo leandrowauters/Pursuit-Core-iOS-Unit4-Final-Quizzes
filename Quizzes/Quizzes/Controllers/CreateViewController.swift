@@ -37,8 +37,8 @@ class CreateViewController: UIViewController, UITextViewDelegate, UITextFieldDel
             let facts = [quizFact1TextView.text!, quizFact2TextView.text!]
             let timeStamp = Date.getISOTimestamp()
             let quizTitle = self.quizTitle.text!
-            
-            let createdQuiz = SavedQuiz.init(id: "0", quizTitle: quizTitle, facts: facts, savedAt: timeStamp)
+            let id = UUID().uuidString
+            let createdQuiz = SavedQuiz.init(id: id, quizTitle: quizTitle, facts: facts, savedAt: timeStamp)
             if let userName = UserDefaults.standard.object(forKey: UserdefaultsHelper.usernameKey) as? String{
                 
                 DataPersistenceModel.saveQuizz(userName: userName, quiz: createdQuiz)
