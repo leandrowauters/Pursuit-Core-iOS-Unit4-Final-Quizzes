@@ -12,11 +12,18 @@ class QuizzesViewController: UIViewController,
 UICollectionViewDelegateFlowLayout, UICollectionViewDataSource {
 
     
+    @IBOutlet weak var messageAlert: UILabel!
     @IBOutlet weak var quizzesCollectionView: UICollectionView!
     var quizzes = [SavedQuiz]() {
         didSet{
             DispatchQueue.main.async {
                 self.quizzesCollectionView.reloadData()
+                if self.quizzes.count == 0 {
+                    self.messageAlert.isHidden = false
+                } else {
+                    self.messageAlert.isHidden = true
+                }
+                
             }
         }
     }
@@ -28,8 +35,13 @@ UICollectionViewDelegateFlowLayout, UICollectionViewDataSource {
     quizzesCollectionView.dataSource = self
     quizzesCollectionView.register(QuizCollectionViewCell.self, forCellWithReuseIdentifier: "QuizCell")
     if let userName = UserDefaults.standard.object(forKey: UserdefaultsHelper.usernameKey) as? String{
-        
+        LoginHelper.loginStatus = .loggedIn
         quizzes = DataPersistenceModel.getQuizzes(userName: userName)
+    }
+    if quizzes.count == 0 {
+        messageAlert.isHidden = false
+    } else {
+        messageAlert.isHidden = true
     }
     
     // Do any additional setup after loading the view, typically from a nib.

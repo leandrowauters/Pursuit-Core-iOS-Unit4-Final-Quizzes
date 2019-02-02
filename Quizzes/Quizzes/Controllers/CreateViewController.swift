@@ -20,9 +20,15 @@ class CreateViewController: UIViewController, UITextViewDelegate, UITextFieldDel
         quizTitle.delegate = self
         quizFact1TextView.delegate = self
         quizFact2TextView.delegate = self
+
         // Do any additional setup after loading the view.
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        if LoginHelper.loginStatus == .notLoggedIn {
+            showAlert()
+        }
+    }
     @IBAction func createWasPressed(_ sender: UIBarButtonItem) {
         if quizTitle.text != "" && quizFact1TextView.text != "" && quizFact2TextView.text != ""{
             let facts = [quizFact1TextView.text!, quizFact2TextView.text!]
@@ -46,7 +52,14 @@ class CreateViewController: UIViewController, UITextViewDelegate, UITextFieldDel
     @IBAction func cancelWasPressed(_ sender: UIBarButtonItem) {
         dismiss(animated: true, completion: nil)
     }
-    
+    func showAlert() {
+        let alert = UIAlertController(title: "User Not Logged In", message: "Please login to create quizzes", preferredStyle: .alert)
+        let okay = UIAlertAction(title: "Okay", style: .default) { (UIAlertAction) in
+            self.dismiss(animated: true, completion: nil)
+        }
+        alert.addAction(okay)
+        present(alert, animated: true, completion: nil)
+    }
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return true

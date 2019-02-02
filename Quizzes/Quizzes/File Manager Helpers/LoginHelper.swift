@@ -14,5 +14,5 @@ enum ProfileState {
 }
 
 class LoginHelper {
-    static var loginStatus: ProfileState!
+    static var loginStatus: ProfileState = .notLoggedIn
 }

@@ -37,18 +37,29 @@
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No quizzes, please create your own, or add new ones from the search tab " textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Fm-1f-6b9">
+                                <rect key="frame" x="40" y="272" width="295" height="138.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="29"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="lXe-rh-7th" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="Lhq-HB-NWR"/>
+                            <constraint firstItem="9Fm-1f-6b9" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="40" id="a3D-kS-61v"/>
                             <constraint firstItem="lXe-rh-7th" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" id="aVk-VL-TJR"/>
                             <constraint firstItem="lXe-rh-7th" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="cgP-f5-wS6"/>
                             <constraint firstItem="lXe-rh-7th" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" id="ex5-eU-KbX"/>
+                            <constraint firstItem="9Fm-1f-6b9" firstAttribute="centerY" secondItem="lXe-rh-7th" secondAttribute="centerY" id="qFE-GZ-Uhn"/>
+                            <constraint firstItem="9Fm-1f-6b9" firstAttribute="centerX" secondItem="lXe-rh-7th" secondAttribute="centerX" id="uPJ-b6-g0Q"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="9Fm-1f-6b9" secondAttribute="trailing" constant="40" id="zlF-Hr-bYR"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" id="nrl-FE-iXl"/>
                     <connections>
+                        <outlet property="messageAlert" destination="9Fm-1f-6b9" id="NEy-di-J9e"/>
                         <outlet property="quizzesCollectionView" destination="lXe-rh-7th" id="9Nu-vy-bpK"/>
                     </connections>
                 </viewController>
