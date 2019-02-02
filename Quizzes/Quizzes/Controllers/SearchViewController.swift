@@ -63,7 +63,7 @@ class SearchViewController: UIViewController, UICollectionViewDataSource, UIColl
                 print(AppError.errorMessage(appError))
             }
             if let quizzes = quizzes {
-                self.quizzes = quizzes
+                self.quizzes = quizzes.sorted{$0.quizTitle < $1.quizTitle}
             }
         }
     }

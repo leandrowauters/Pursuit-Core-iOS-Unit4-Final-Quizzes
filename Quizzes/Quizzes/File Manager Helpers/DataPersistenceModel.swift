@@ -39,6 +39,7 @@ struct DataPersistenceModel {
             if let data = FileManager.default.contents(atPath: path){
                 do {
                     quizzes = try PropertyListDecoder().decode([SavedQuiz].self, from: data)
+                    quizzes = quizzes.sorted{$0.date < $1.date}
                 }catch{
                     print("Property list decoding error: \(error)")
                 }

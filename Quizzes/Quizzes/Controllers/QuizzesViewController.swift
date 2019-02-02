@@ -23,7 +23,6 @@ UICollectionViewDelegateFlowLayout, UICollectionViewDataSource {
                 } else {
                     self.messageAlert.isHidden = true
                 }
-                
             }
         }
     }
@@ -46,6 +45,8 @@ UICollectionViewDelegateFlowLayout, UICollectionViewDataSource {
     
     // Do any additional setup after loading the view, typically from a nib.
   }
+    
+
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return quizzes.count
     }

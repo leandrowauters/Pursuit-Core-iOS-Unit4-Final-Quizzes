@@ -174,8 +174,8 @@
 		D54B439722049D2B00D5520F /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				D54B439822049DE900D5520F /* DetailViewController.swift */,
 				577118C22203796A00B9DD0B /* QuizzesViewController.swift */,
+				D54B439822049DE900D5520F /* DetailViewController.swift */,
 				D54B439122049CF500D5520F /* SearchViewController.swift */,
 				D54B439522049D1B00D5520F /* ProfileViewController.swift */,
 				D54B439322049D0D00D5520F /* CreateViewController.swift */,
