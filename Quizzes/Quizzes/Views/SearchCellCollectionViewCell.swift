@@ -15,13 +15,14 @@ class SearchCellCollectionViewCell: UICollectionViewCell {
         button.setTitle("+", for: .normal)
         button.setTitleColor(.black, for: .normal)
         button.titleLabel?.font = UIFont(name: "Futura", size: 50)
-
+        
         return button
     }()
     
     lazy var quizLabel: UILabel = {
         var label = UILabel()
         label.text = "Label"
+        label.font = UIFont(name: "Futura", size: 30)
         label.numberOfLines = 3
         return label
     }()

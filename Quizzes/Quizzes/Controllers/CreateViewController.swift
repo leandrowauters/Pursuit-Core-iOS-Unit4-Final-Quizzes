@@ -55,7 +55,7 @@ class CreateViewController: UIViewController, UITextViewDelegate, UITextFieldDel
     func showAlert() {
         let alert = UIAlertController(title: "User Not Logged In", message: "Please login to create quizzes", preferredStyle: .alert)
         let okay = UIAlertAction(title: "Okay", style: .default) { (UIAlertAction) in
-            self.dismiss(animated: true, completion: nil)
+            alert.dismiss(animated: true, completion: nil)
         }
         alert.addAction(okay)
         present(alert, animated: true, completion: nil)
@@ -72,5 +72,4 @@ class CreateViewController: UIViewController, UITextViewDelegate, UITextFieldDel
         }
         return true
     }
-
 }

@@ -18,6 +18,7 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var profileImageButton: UIButton!
     @IBOutlet weak var profileButton: UIButton!
     
+    @IBOutlet weak var cameraButton: UIButton!
     private var imagePickerViewController: UIImagePickerController!
     
     var logingStatus = LoginHelper.loginStatus {
@@ -37,17 +38,13 @@ class ProfileViewController: UIViewController {
         } else {
             showAlert()
         }
-//        if profileState == .notLoggedIn{
-//            showAlert()
-//        }
-        // Do any additional setup after loading the view.
     }
     private func setupImagePickerViewController(){
         imagePickerViewController = UIImagePickerController()
         imagePickerViewController.delegate = self
-//        if !UIImagePickerController.isSourceTypeAvailable(.camera){
-//            cameraButton.isEnabled = false
-//        }
+        if !UIImagePickerController.isSourceTypeAvailable(.camera){
+            cameraButton.isEnabled = false
+        }
     }
     private func showImagePickerController() {
         present(imagePickerViewController,animated: true,completion:  nil)
@@ -57,6 +54,13 @@ class ProfileViewController: UIViewController {
         showImagePickerController()
         imagePickerViewController.sourceType = .photoLibrary
     }
+    
+    @IBAction func cameraButtonPressed(_ sender: UIButton) {
+        imagePickerViewController.sourceType = .camera
+        showImagePickerController()
+    }
+    
+    
     @IBAction func profileButtonWasPressed(_ sender: UIButton) {
         showAlert()
     }
