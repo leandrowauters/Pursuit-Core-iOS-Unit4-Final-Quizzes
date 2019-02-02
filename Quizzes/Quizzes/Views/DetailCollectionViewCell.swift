@@ -15,7 +15,7 @@ class DetailCollectionViewCell: UICollectionViewCell {
         label.text = "Label"
         label.textColor = .white
         label.font = UIFont(name: "Futura", size: 25)
-        label.numberOfLines = 5
+        label.numberOfLines = 10
         return label
     }()
     

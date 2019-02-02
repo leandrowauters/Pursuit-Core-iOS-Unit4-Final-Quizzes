@@ -40,7 +40,14 @@ class CreateViewController: UIViewController, UITextViewDelegate, UITextFieldDel
             
             let createdQuiz = SavedQuiz.init(id: "0", quizTitle: quizTitle, facts: facts, savedAt: timeStamp)
             if let userName = UserDefaults.standard.object(forKey: UserdefaultsHelper.usernameKey) as? String{
+                
                 DataPersistenceModel.saveQuizz(userName: userName, quiz: createdQuiz)
+                let alert = UIAlertController(title: "Quiz Saved To My Quizzes", message: nil, preferredStyle: .alert)
+                let ok = UIAlertAction(title: "Ok", style: .default) { (UIAlertAction) in
+                    self.dismiss(animated: true, completion: nil)
+                }
+                alert.addAction(ok)
+                present(alert, animated: true, completion: nil)
             }
             
         } else {

@@ -21,6 +21,8 @@ struct UserdefaultsHelper {
                 }
             }
             
+        } else {
+            imageToReturn = UIImage(named: "placeholder-image")!
         }
         return imageToReturn
     }

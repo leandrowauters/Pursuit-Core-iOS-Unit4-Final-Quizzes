@@ -24,7 +24,7 @@ class SearchCellCollectionViewCell: UICollectionViewCell {
         label.text = "Label"
         label.font = UIFont(name: "Futura", size: 30)
         label.textColor = .white
-        label.numberOfLines = 3
+        label.numberOfLines = 10
         return label
     }()
     
