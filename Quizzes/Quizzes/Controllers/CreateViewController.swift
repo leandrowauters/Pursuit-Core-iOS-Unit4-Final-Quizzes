@@ -30,7 +30,7 @@ class CreateViewController: UIViewController, UITextViewDelegate, UITextFieldDel
         }
     }
     @IBAction func createWasPressed(_ sender: UIBarButtonItem) {
-        if quizTitle.text != "" && quizFact1TextView.text != "" && quizFact2TextView.text != ""{
+        if quizTitle.text != ""  && (quizFact1TextView.text != "" && quizFact1TextView.text != "Fact 1") && (quizFact2TextView.text != "" && quizFact2TextView.text != "Fact 2"){
             let facts = [quizFact1TextView.text!, quizFact2TextView.text!]
             let timeStamp = Date.getISOTimestamp()
             let quizTitle = self.quizTitle.text!
