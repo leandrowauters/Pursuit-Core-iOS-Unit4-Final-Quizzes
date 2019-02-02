@@ -57,7 +57,7 @@ class ProfileViewController: UIViewController {
         imagePickerViewController.sourceType = .photoLibrary
     }
     @IBAction func profileButtonWasPressed(_ sender: UIButton) {
-        
+        showAlert()
     }
 
     func showAlert(){

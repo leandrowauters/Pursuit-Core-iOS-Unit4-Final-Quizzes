@@ -177,6 +177,9 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3rP-1i-zVa">
                                         <rect key="frame" x="164.5" y="139" width="46" height="30"/>
                                         <state key="normal" title="Button"/>
+                                        <connections>
+                                            <action selector="profileButtonWasPressed:" destination="OIy-hV-TnG" eventType="touchUpInside" id="3dj-Wk-gzZ"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fIo-79-eTV">
                                         <rect key="frame" x="129" y="8" width="117" height="115"/>
@@ -187,7 +190,6 @@
                                         <state key="normal" image="placeholder-image"/>
                                         <connections>
                                             <action selector="imageButtonPressed:" destination="OIy-hV-TnG" eventType="touchUpInside" id="PJt-oC-zPn"/>
-                                            <action selector="profileButtonWasPressed:" destination="OIy-hV-TnG" eventType="touchUpInside" id="13v-v3-qSi"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -253,7 +255,6 @@
         <!--Quizzes-->
         <scene sceneID="r36-OG-vqM">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Nlr-ni-5YZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Lfi-KJ-3Rc" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Quizzes" id="7iE-cV-gvP"/>
                     <toolbarItems/>
@@ -266,6 +267,7 @@
                         <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="DjS-Hv-kAi"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Nlr-ni-5YZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="952.79999999999995" y="133.5832083958021"/>
         </scene>
