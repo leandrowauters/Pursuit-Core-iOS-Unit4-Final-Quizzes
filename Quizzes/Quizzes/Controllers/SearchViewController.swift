@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SearchViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+class SearchViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, UISearchBarDelegate {
     var alreadySave = [String]()
     var quizzes = [Quiz]() {
         didSet {
@@ -23,14 +23,8 @@ class SearchViewController: UIViewController, UICollectionViewDataSource, UIColl
         view.addSubview(searchView)
         searchView.quizzesCollectionView.delegate = self
         searchView.quizzesCollectionView.dataSource = self
-        APIClient.getQuizzes { (appError, quizzes) in
-            if let appError = appError {
-                print(AppError.errorMessage(appError))
-            }
-            if let quizzes = quizzes {
-                self.quizzes = quizzes
-            }
-        }
+        searchView.quizsearchBar.delegate = self
+        getQuizzes()
         // Do any additional setup after loading the view.
     }
     @objc func addWasPressed(sender: UIButton) {
@@ -63,7 +57,26 @@ class SearchViewController: UIViewController, UICollectionViewDataSource, UIColl
             }
         }
     }
-    
+    func getQuizzes(){
+        APIClient.getQuizzes { (appError, quizzes) in
+            if let appError = appError {
+                print(AppError.errorMessage(appError))
+            }
+            if let quizzes = quizzes {
+                self.quizzes = quizzes
+            }
+        }
+    }
+    func searchForQuiz(keyword: String) {
+        APIClient.getQuizzes { (appError, quizzes) in
+            if let appError = appError {
+                print(AppError.errorMessage(appError))
+            }
+            if let quizzes = quizzes {
+                self.quizzes = quizzes.filter{$0.quizTitle.lowercased().contains(keyword.lowercased())}
+            }
+        }
+    }
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return quizzes.count
     }
@@ -77,5 +90,13 @@ class SearchViewController: UIViewController, UICollectionViewDataSource, UIColl
         cell.addButton.addTarget(self, action: #selector(addWasPressed(sender:)), for: .touchUpInside)
         return cell
     }
-    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        searchForQuiz(keyword: searchText)
+        if searchText.isEmpty{
+            getQuizzes()
+        }
+    }
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.resignFirstResponder()
+    }
 }

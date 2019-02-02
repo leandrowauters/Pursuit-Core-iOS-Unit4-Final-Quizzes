@@ -20,6 +20,11 @@ class SearchView: UIView {
         collectionView.backgroundColor = #colorLiteral(red: 0.1764705926, green: 0.4980392158, blue: 0.7568627596, alpha: 1)
         return collectionView
     }()
+    lazy var quizsearchBar: UISearchBar = {
+        var searchBar = UISearchBar()
+        searchBar.placeholder = "Search For Quiz"
+        return searchBar
+    }()
     
     override init(frame: CGRect) {
         super.init(frame: UIScreen.main.bounds)
@@ -36,15 +41,28 @@ class SearchView: UIView {
  
     }
     private func setupViews() {
+        setupSearchBar()
         setupCollectionView()
     }
     private func setupCollectionView(){
         addSubview(quizzesCollectionView)
         quizzesCollectionView.translatesAutoresizingMaskIntoConstraints = false
-        quizzesCollectionView.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
-        quizzesCollectionView.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
-        quizzesCollectionView.heightAnchor.constraint(equalTo: heightAnchor).isActive = true
-        quizzesCollectionView.widthAnchor.constraint(equalTo: widthAnchor).isActive = true
+        quizzesCollectionView.topAnchor.constraint(equalTo: quizsearchBar.bottomAnchor).isActive = true
+        quizzesCollectionView.leadingAnchor.constraint(equalTo: leadingAnchor).isActive = true
+        quizzesCollectionView.trailingAnchor.constraint(equalTo: trailingAnchor).isActive = true
+        quizzesCollectionView.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
+//        quizzesCollectionView.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
+//        quizzesCollectionView.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
+//        quizzesCollectionView.heightAnchor.constraint(equalTo: heightAnchor).isActive = true
+//        quizzesCollectionView.widthAnchor.constraint(equalTo: widthAnchor).isActive = true
+    }
+    private func setupSearchBar(){
+        addSubview(quizsearchBar)
+        quizsearchBar.translatesAutoresizingMaskIntoConstraints = false
+        quizsearchBar.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor).isActive = true
+        quizsearchBar.leadingAnchor.constraint(equalTo: leadingAnchor).isActive = true
+        quizsearchBar.trailingAnchor.constraint(equalTo: trailingAnchor).isActive = true
+        
     }
 }
 
