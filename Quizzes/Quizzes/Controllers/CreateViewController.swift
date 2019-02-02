@@ -17,6 +17,7 @@ class CreateViewController: UIViewController, UITextViewDelegate, UITextFieldDel
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupUI()
         quizTitle.delegate = self
         quizFact1TextView.delegate = self
         quizFact2TextView.delegate = self
@@ -25,9 +26,11 @@ class CreateViewController: UIViewController, UITextViewDelegate, UITextFieldDel
     }
     
     override func viewDidAppear(_ animated: Bool) {
+        
         if LoginHelper.loginStatus == .notLoggedIn {
             showAlert()
         }
+        
     }
     @IBAction func createWasPressed(_ sender: UIBarButtonItem) {
         if quizTitle.text != ""  && (quizFact1TextView.text != "" && quizFact1TextView.text != "Fact 1") && (quizFact2TextView.text != "" && quizFact2TextView.text != "Fact 2"){
@@ -51,6 +54,20 @@ class CreateViewController: UIViewController, UITextViewDelegate, UITextFieldDel
     }
     @IBAction func cancelWasPressed(_ sender: UIBarButtonItem) {
         dismiss(animated: true, completion: nil)
+    }
+    func setupUI(){
+        quizTitle.layer.borderColor = UIColor.white.cgColor
+        quizTitle.layer.borderWidth = 3
+        quizTitle.layer.cornerRadius = 10
+        quizTitle.layer.masksToBounds = true
+        quizFact1TextView.layer.borderColor = UIColor.white.cgColor
+        quizFact1TextView.layer.borderWidth = 3
+        quizFact1TextView.layer.cornerRadius = 10
+        quizFact1TextView.layer.masksToBounds = true
+        quizFact2TextView.layer.borderColor = UIColor.white.cgColor
+        quizFact2TextView.layer.borderWidth = 3
+        quizFact2TextView.layer.cornerRadius = 10
+        quizFact2TextView.layer.masksToBounds = true
     }
     func showAlert() {
         let alert = UIAlertController(title: "User Not Logged In", message: "Please login to create quizzes", preferredStyle: .alert)

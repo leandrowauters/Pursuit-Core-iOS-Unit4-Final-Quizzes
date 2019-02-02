@@ -21,6 +21,7 @@ class SearchViewController: UIViewController, UICollectionViewDataSource, UIColl
     override func viewDidLoad() {
         super.viewDidLoad()
         view.addSubview(searchView)
+        title = "Search For Quizzes"
         searchView.quizzesCollectionView.delegate = self
         searchView.quizzesCollectionView.dataSource = self
         searchView.quizsearchBar.delegate = self
@@ -77,6 +78,11 @@ class SearchViewController: UIViewController, UICollectionViewDataSource, UIColl
             }
         }
     }
+    func setupCell(cell: UICollectionViewCell){
+        cell.backgroundColor = .clear
+        cell.layer.borderWidth = 3
+        cell.layer.borderColor = UIColor.white.cgColor
+    }
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return quizzes.count
     }
@@ -88,6 +94,7 @@ class SearchViewController: UIViewController, UICollectionViewDataSource, UIColl
         cell.quizLabel.text = quizToShow.quizTitle
         cell.addButton.tag = indexPath.row
         cell.addButton.addTarget(self, action: #selector(addWasPressed(sender:)), for: .touchUpInside)
+        setupCell(cell: cell)
         return cell
     }
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {

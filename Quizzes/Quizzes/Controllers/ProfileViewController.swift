@@ -30,6 +30,7 @@ class ProfileViewController: UIViewController {
     var userName = String()
     override func viewDidLoad() {
         super.viewDidLoad()
+        title = "Profile"
         setupImagePickerViewController()
         if let userName = UserDefaults.standard.object(forKey: UserdefaultsHelper.usernameKey) as? String {
             profileButton.setTitle(userName, for: .normal)

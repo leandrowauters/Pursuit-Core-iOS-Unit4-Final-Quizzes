@@ -13,7 +13,8 @@ class DetailCollectionViewCell: UICollectionViewCell {
     lazy var quizLabel: UILabel = {
         var label = UILabel()
         label.text = "Label"
-        label.textColor = .black
+        label.textColor = .white
+        label.font = UIFont(name: "Futura", size: 25)
         label.numberOfLines = 5
         return label
     }()

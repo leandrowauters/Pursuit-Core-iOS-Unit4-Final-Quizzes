@@ -13,7 +13,7 @@ class SearchCellCollectionViewCell: UICollectionViewCell {
     lazy var addButton: UIButton = {
         var button = UIButton()
         button.setTitle("+", for: .normal)
-        button.setTitleColor(.black, for: .normal)
+        button.setTitleColor(.white, for: .normal)
         button.titleLabel?.font = UIFont(name: "Futura", size: 50)
         
         return button
@@ -23,6 +23,7 @@ class SearchCellCollectionViewCell: UICollectionViewCell {
         var label = UILabel()
         label.text = "Label"
         label.font = UIFont(name: "Futura", size: 30)
+        label.textColor = .white
         label.numberOfLines = 3
         return label
     }()

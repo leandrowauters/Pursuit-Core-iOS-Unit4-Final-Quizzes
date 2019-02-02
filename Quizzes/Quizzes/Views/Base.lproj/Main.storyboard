@@ -93,7 +93,7 @@
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Title" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Sty-BF-LS3">
                                 <rect key="frame" x="20" y="82" width="335" height="37"/>
                                 <color key="backgroundColor" red="0.99593228099999997" green="0.27651777859999999" blue="0.36207842829999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <nil key="textColor"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="25"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
@@ -115,7 +115,7 @@
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1ZX-sd-MAl">
                                 <rect key="frame" x="0.0" y="10" width="375" height="44"/>
                                 <items>
-                                    <navigationItem title="Title" id="Iob-yz-Zcz">
+                                    <navigationItem title="Create" id="Iob-yz-Zcz">
                                         <barButtonItem key="leftBarButtonItem" title="Cancel" id="Lb5-ct-H6P">
                                             <connections>
                                                 <action selector="cancelWasPressed:" destination="gpp-6O-guH" id="bUT-wm-XKa"/>

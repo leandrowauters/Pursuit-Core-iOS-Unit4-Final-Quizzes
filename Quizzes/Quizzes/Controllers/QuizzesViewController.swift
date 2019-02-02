@@ -28,7 +28,7 @@ UICollectionViewDelegateFlowLayout, UICollectionViewDataSource {
     }
   override func viewDidLoad() {
     super.viewDidLoad()
-    
+    title = "My Quizzes"
     self.tabBarController?.delegate = UIApplication.shared.delegate as? UITabBarControllerDelegate
     quizzesCollectionView.delegate = self
     quizzesCollectionView.dataSource = self
