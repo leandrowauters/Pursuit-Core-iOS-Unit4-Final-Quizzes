@@ -8,7 +8,7 @@
 
 import UIKit
 
-class CreateViewController: UIViewController {
+class CreateViewController: UIViewController, UITextViewDelegate, UITextFieldDelegate {
     @IBOutlet weak var quizTitle: UITextField!
     
     @IBOutlet weak var quizFact1TextView: UITextView!
@@ -17,7 +17,9 @@ class CreateViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        quizTitle.delegate = self
+        quizFact1TextView.delegate = self
+        quizFact2TextView.delegate = self
         // Do any additional setup after loading the view.
     }
     
@@ -26,6 +28,7 @@ class CreateViewController: UIViewController {
             let facts = [quizFact1TextView.text!, quizFact2TextView.text!]
             let timeStamp = Date.getISOTimestamp()
             let quizTitle = self.quizTitle.text!
+            
             let createdQuiz = SavedQuiz.init(id: "0", quizTitle: quizTitle, facts: facts, savedAt: timeStamp)
             if let userName = UserDefaults.standard.object(forKey: UserdefaultsHelper.usernameKey) as? String{
                 DataPersistenceModel.saveQuizz(userName: userName, quiz: createdQuiz)
@@ -44,14 +47,17 @@ class CreateViewController: UIViewController {
         dismiss(animated: true, completion: nil)
     }
     
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
     }
-    */
+    
+    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+        if(text == "\n") {
+            textView.resignFirstResponder()
+            return false
+        }
+        return true
+    }
 
 }

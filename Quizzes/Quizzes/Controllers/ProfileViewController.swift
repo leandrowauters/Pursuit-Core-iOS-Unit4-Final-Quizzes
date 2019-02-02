@@ -8,10 +8,7 @@
 
 import UIKit
 
-enum ProfileState {
-    case loggedIn
-    case notLoggedIn
-}
+
 
 
 class ProfileViewController: UIViewController {
@@ -23,10 +20,16 @@ class ProfileViewController: UIViewController {
     
     private var imagePickerViewController: UIImagePickerController!
     
+    var logingStatus = LoginHelper.loginStatus {
+        didSet{
+            showLoginAlert()
+        }
+    }
+    var userName = String()
     override func viewDidLoad() {
         super.viewDidLoad()
         setupImagePickerViewController()
-        if let userName = UserDefaults.standard.object(forKey: "UserName") as? String {
+        if let userName = UserDefaults.standard.object(forKey: UserdefaultsHelper.usernameKey) as? String {
             profileButton.setTitle(userName, for: .normal)
         } else {
             showAlert()
@@ -59,7 +62,14 @@ class ProfileViewController: UIViewController {
     @IBAction func profileButtonWasPressed(_ sender: UIButton) {
         showAlert()
     }
-
+    func showLoginAlert(){
+        let alert = UIAlertController(title: "\(userName) Welcome!", message: nil, preferredStyle: .alert)
+        let okay = UIAlertAction(title: "Okay", style: .default) { (UIAlertAction) in
+                self.dismiss(animated: true, completion: nil)
+            }
+        alert.addAction(okay)
+        present(alert, animated: true, completion: nil)
+    }
     func showAlert(){
         let alert = UIAlertController(title: "Enter User Name", message: "No spaces allowed or special characters", preferredStyle: .alert)
         alert.addTextField { (textField) in
@@ -70,7 +80,8 @@ class ProfileViewController: UIViewController {
             if var text = alert.textFields?.first?.text{
                 text.insert("@", at: text.startIndex)
                 self.profileButton.setTitle(text, for: .normal)
-//                self.profileState = .loggedIn
+                self.userName = text
+                self.logingStatus = .loggedIn
                 UserDefaults.standard.set(text, forKey: "UserName")
                 
             }

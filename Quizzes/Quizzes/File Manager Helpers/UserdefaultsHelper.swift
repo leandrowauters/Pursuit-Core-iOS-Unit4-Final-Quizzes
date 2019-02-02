@@ -9,6 +9,6 @@
 import Foundation
 
 struct UserdefaultsHelper {
-    static var usernameKey = "UserName"
+    static var usernameKey = "UserName" 
     static var userImageKey = "UserImage"
 }

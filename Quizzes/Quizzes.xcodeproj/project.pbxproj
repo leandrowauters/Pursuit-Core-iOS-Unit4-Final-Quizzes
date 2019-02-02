@@ -28,6 +28,7 @@
 		D532216D2204CBC000773748 /* QuizCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D532216C2204CBC000773748 /* QuizCollectionViewCell.swift */; };
 		D532216F2204F31700773748 /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D532216E2204F31700773748 /* DetailView.swift */; };
 		D53221712204F44300773748 /* DetailCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D53221702204F44300773748 /* DetailCollectionViewCell.swift */; };
+		D532217522061D5F00773748 /* LoginHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = D532217422061D5F00773748 /* LoginHelper.swift */; };
 		D54B439222049CF500D5520F /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D54B439122049CF500D5520F /* SearchViewController.swift */; };
 		D54B439422049D0D00D5520F /* CreateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D54B439322049D0D00D5520F /* CreateViewController.swift */; };
 		D54B439622049D1B00D5520F /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D54B439522049D1B00D5520F /* ProfileViewController.swift */; };
@@ -58,6 +59,7 @@
 		D532216C2204CBC000773748 /* QuizCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizCollectionViewCell.swift; sourceTree = "<group>"; };
 		D532216E2204F31700773748 /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 		D53221702204F44300773748 /* DetailCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailCollectionViewCell.swift; sourceTree = "<group>"; };
+		D532217422061D5F00773748 /* LoginHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginHelper.swift; sourceTree = "<group>"; };
 		D54B439122049CF500D5520F /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		D54B439322049D0D00D5520F /* CreateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateViewController.swift; sourceTree = "<group>"; };
 		D54B439522049D1B00D5520F /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
@@ -129,6 +131,7 @@
 		577118D822037B4000B9DD0B /* File Manager Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				D532217422061D5F00773748 /* LoginHelper.swift */,
 				577118D922037B5B00B9DD0B /* DataPersistenceManager.swift */,
 				D532215F2204B4C400773748 /* DataPersistenceModel.swift */,
 				D532215A2204B3E800773748 /* UserdefaultsHelper.swift */,
@@ -254,6 +257,7 @@
 				D532215D2204B46100773748 /* User.swift in Sources */,
 				577118D722037ABA00B9DD0B /* NetworkHelper.swift in Sources */,
 				D53221652204BAAB00773748 /* SearchCellCollectionViewCell.swift in Sources */,
+				D532217522061D5F00773748 /* LoginHelper.swift in Sources */,
 				577118C32203796A00B9DD0B /* QuizzesViewController.swift in Sources */,
 				D532215B2204B3E800773748 /* UserdefaultsHelper.swift in Sources */,
 				D54B439622049D1B00D5520F /* ProfileViewController.swift in Sources */,
