@@ -23,6 +23,7 @@ class ProfileViewController: UIViewController {
     var logingStatus = LoginHelper.loginStatus {
         didSet{
             showLoginAlert()
+            profileImageButton.setImage(UserdefaultsHelper.retiveImage(), for: .normal)
         }
     }
     var userName = String()
@@ -31,13 +32,10 @@ class ProfileViewController: UIViewController {
         setupImagePickerViewController()
         if let userName = UserDefaults.standard.object(forKey: UserdefaultsHelper.usernameKey) as? String {
             profileButton.setTitle(userName, for: .normal)
+            profileImageButton.setImage(UserdefaultsHelper.retiveImage(), for: .normal)
+
         } else {
             showAlert()
-        }
-        if let imageData = UserDefaults.standard.object(forKey: UserdefaultsHelper.userImageKey) as? Data{
-            if let image = UIImage(data: imageData){
-                profileImageButton.setImage(image, for: .normal)
-            }
         }
 //        if profileState == .notLoggedIn{
 //            showAlert()
@@ -81,8 +79,8 @@ class ProfileViewController: UIViewController {
                 text.insert("@", at: text.startIndex)
                 self.profileButton.setTitle(text, for: .normal)
                 self.userName = text
-                self.logingStatus = .loggedIn
                 UserDefaults.standard.set(text, forKey: "UserName")
+                self.logingStatus = .loggedIn
                 
             }
         }
@@ -101,7 +99,9 @@ extension ProfileViewController: UIImagePickerControllerDelegate, UINavigationCo
         if let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
            profileImageButton.setImage(image, for: .normal)
            let imageToSave = image.jpegData(compressionQuality: 0.5)
-            UserDefaults.standard.set(imageToSave, forKey: "UserImage")
+            if let userName = UserDefaults.standard.object(forKey: UserdefaultsHelper.usernameKey) as? String{
+            UserDefaults.standard.set(imageToSave, forKey: "UserImage" + userName)
+            }
         } else {
             print("Image Nil")
         }

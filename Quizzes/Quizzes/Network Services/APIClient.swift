@@ -10,7 +10,7 @@ import Foundation
 
 struct APIClient {
    static func getQuizzes(completionHandler: @escaping(AppError?, [Quiz]?) -> Void) {
-        let stringURL = "http://5c4d4c0d0de08100147c59b5.mockapi.io/api/v1/quizzes"
+        let stringURL = "https://quizzes-9ff59.firebaseio.com/.json"
         NetworkHelper.shared.performDataTask(endpointURLString: stringURL, httpMethod: "GET", httpBody: nil) { (appError, data) in
             if appError != nil {
                 print(AppError.badURL("Bad URL"))
