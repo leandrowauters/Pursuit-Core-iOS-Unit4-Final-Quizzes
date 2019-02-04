@@ -84,8 +84,9 @@ class ProfileViewController: UIViewController {
                 text.insert("@", at: text.startIndex)
                 self.logingStatus = .loggedIn
                 LoginHelper.loginStatus = .loggedIn
-                self.profileButton.setTitle(text, for: .normal)
                 self.userName = text
+                self.profileButton.setTitle(text, for: .normal)
+                
                 UserDefaults.standard.set(text, forKey: "UserName")
                 
                 
