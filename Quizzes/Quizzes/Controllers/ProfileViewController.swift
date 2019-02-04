@@ -82,10 +82,12 @@ class ProfileViewController: UIViewController {
         let okay = UIAlertAction(title: "Okay", style: .default) { (UIAlertAction) in
             if var text = alert.textFields?.first?.text{
                 text.insert("@", at: text.startIndex)
+                self.logingStatus = .loggedIn
+                LoginHelper.loginStatus = .loggedIn
                 self.profileButton.setTitle(text, for: .normal)
                 self.userName = text
                 UserDefaults.standard.set(text, forKey: "UserName")
-                self.logingStatus = .loggedIn
+                
                 
             }
         }
