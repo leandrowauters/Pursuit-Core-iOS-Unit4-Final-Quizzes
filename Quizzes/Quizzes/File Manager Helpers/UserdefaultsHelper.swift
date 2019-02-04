@@ -19,8 +19,9 @@ struct UserdefaultsHelper {
                 if let image = UIImage(data: imageData){
                     imageToReturn = image
                 }
+                } else {
+            imageToReturn = UIImage(named: "placeholder-image")!
             }
-            
         } else {
             imageToReturn = UIImage(named: "placeholder-image")!
         }

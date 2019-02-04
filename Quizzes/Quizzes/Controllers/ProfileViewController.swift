@@ -32,6 +32,7 @@ class ProfileViewController: UIViewController {
         super.viewDidLoad()
         title = "Profile"
         setupImagePickerViewController()
+        setImage()
         if let userName = UserDefaults.standard.object(forKey: UserdefaultsHelper.usernameKey) as? String {
             profileButton.setTitle(userName, for: .normal)
             profileImageButton.setImage(UserdefaultsHelper.retiveImage(), for: .normal)
@@ -84,18 +85,20 @@ class ProfileViewController: UIViewController {
                 text.insert("@", at: text.startIndex)
                 self.logingStatus = .loggedIn
                 LoginHelper.loginStatus = .loggedIn
+                UserDefaults.standard.set(text, forKey: "UserName")
+                self.profileImageButton.setImage(UserdefaultsHelper.retiveImage(), for: .normal)
                 self.userName = text
                 self.profileButton.setTitle(text, for: .normal)
-                
-                UserDefaults.standard.set(text, forKey: "UserName")
-                
                 
             }
         }
         alert.addAction(okay)
         present(alert, animated: true, completion: nil)
     }
-
+    func setImage(){
+        profileImageButton.layer.cornerRadius = profileImageButton.frame.height / 2
+        profileImageButton.layer.masksToBounds = true
+    }
 
 }
 
